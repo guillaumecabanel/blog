@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.where(draft: false).order(published_at: :desc)
+    @articles = Article.where(draft: false).order(created_at: :desc).with_rich_text_content
   end
 
   def show

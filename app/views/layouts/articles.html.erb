@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @article.title %></title>
+    <% if @article %>
+      <title><%= @article.title %></title>
+    <% else %>
+      <title>Blog</title>
+    <% end %>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -17,8 +21,8 @@
       <section class="lg:w-8/12 px-5"><%= yield %></section>
       <aside class="lg:w-4/12 px-5 lg:fixed lg:right-0"><%= render "articles/shared/aside" %></aside>
     </main>
-    <footer class="mt-32">
-      Ingrédients du bonheur
+    <footer class="mt-32 flex justify-center py-8">
+      <p class="text-gray-700">Ingrédients du bonheur</p>
     </footer>
   </body>
 </html>

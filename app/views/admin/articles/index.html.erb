@@ -1,0 +1,20 @@
+<div class="flex justify-end">
+  <%= link_to "Nouvel article", new_admin_article_path, class: "btn-primary"%>
+</div>
+
+<ul class="mt-16">
+  <% @articles.each do |article| %>
+    <li class="flex justify-between p-4 border-x border-b first:border-t">
+      <%= link_to edit_admin_article_path(article), class: "hover:underline" do %>
+        <h3 class="text-xl"><%= article.title %></h3>
+      <% end %>
+
+      <% if article.draft %>
+        <span class="ml-4 px-2 py-1 bg-gray-200 font-semibold text-sm rounded-lg">Brouillon</span>
+      <% else %>
+        <span class="ml-4 px-2 py-1 bg-green-600 text-white font-semibold text-sm rounded-lg">Publié</span>
+      <% end %>
+
+    <li>
+  <% end %>
+</ul>

@@ -1,13 +1,19 @@
 module Admin
-  class ArticlesController < ApplicationController
+  class ArticlesController < AdminController
+    def index
+      @articles = Article.all
+    end
+
     def new
       @article = Article.new
     end
 
     def create
       @article = Article.new(article_params)
+      @article.draft = params[:button] == "draft"
+
       if @article.save
-        redirect_to article_path(@article)
+        redirect_to admin_articles_path
       else
         render :new
       end
@@ -19,9 +25,10 @@ module Admin
 
     def update
       @article = Article.find(params[:id])
+      @article.draft = params[:button] == "draft"
 
       if @article.update(article_params)
-        redirect_to article_path(@article)
+        redirect_to admin_articles_path
       else
         render :edit
       end
@@ -30,7 +37,7 @@ module Admin
     private
 
     def article_params
-      params.require(:article).permit(:title, :content, :draft)
+      params.require(:article).permit(:title, :content)
     end
   end
 end

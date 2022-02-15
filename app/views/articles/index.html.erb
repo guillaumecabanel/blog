@@ -1,0 +1,14 @@
+<h1 class="mb-16 text-4xl font-bold font-serif text-indigo-900">
+  Les ingrédients du bonheur
+</h1>
+<div class="grid grid-cols-3 gap-4">
+  <% @articles.each do |article| %>
+    <%= link_to article, class: "mb-8 pb-4 shadow relative" do %>
+      <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+
+      <h3 class="m-4 text-2xl font-bold font-serif text-indigo-900"><%= article.title %></h3>
+
+      <p class="absolute bottom-0 left-0 ml-2 mb-1 text-gray-600">Publié le <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %></p>
+    <% end %>
+  <% end %>
+</div>

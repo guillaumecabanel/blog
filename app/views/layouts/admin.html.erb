@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5">
+    <nav class="h-16 flex items-center bg-gray-800 text-white px-8">
+      <%= link_to "Admin", admin_path, class: "mr-4" %>
+      <%= link_to "Blog", root_path %>
+    </nav>
+    <main class="container mx-auto mt-16 px-5">
       <%= yield %>
     </main>
   </body>

@@ -1,10 +1,12 @@
-<%= image_tag "you.jpg", class: "w-64 h-64 rounded-full shadow mb-8 mx-auto"%>
+<%= image_tag "you.jpg", class: "w-36 h-36 rounded-full shadow mb-8 mx-auto"%>
 
 <h2 class="text-center text-xl mb-8">
   <span class="font-semibold text-slate-800">Chloé</span> <span class="text-slate-600">Sophrologue</span>
 </h2>
 
-<%= link_to "En savoir plus", "#", class: "p-4 text-center bg-indigo-800 text-white font-semibold rounded shadow hover:bg-indigo-700 cursor-pointer mx-auto w-64 block" %>
+<div class="flex justify-center">
+  <%= link_to "En savoir plus", "#", class: "btn-primary mx-auto w-64" %>
+</div>
 
 <div class="flex mt-8 justify-center">
   <%= link_to "#", class: "block cursor-pointer mr-4" do %>
