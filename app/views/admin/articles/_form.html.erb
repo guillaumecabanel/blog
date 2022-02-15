@@ -1,0 +1,20 @@
+<%= form_with model: [:admin, article] do |form| %>
+  <div class="field boolean">
+    <%= form.label :draft %>
+    <%= form.check_box :draft %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit %>
+  </div>
+<% end %>

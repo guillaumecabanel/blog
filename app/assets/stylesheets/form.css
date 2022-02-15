@@ -1,0 +1,59 @@
+input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="submit"] {
+  padding: .75rem;
+  line-height: 1.5rem;
+  border-radius: 0.375rem;
+  width: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="url"] {
+  border: 1px solid #e5e7eb; /* gray-200 */
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: 600;
+  background-color: #1F2937; /* gray-800 */
+
+  transition-property: background-color;
+  transition-duration: .3s;
+}
+
+label {
+  display: block;
+  font-size: .75rem;
+  line-height: 1rem;
+  letter-spacing: .025em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.field.boolean {
+  display: flex;
+  align-items: bottom;
+}
+
+.field.boolean label {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+  margin: 0 .5rem 0 0;
+}
+
+.field, .form-actions, .devise-links {
+  margin: 2rem auto 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .field, .form-actions, .devise-links {
+    max-width: 50rem;
+  }
+}
+
+trix-editor {
+  min-height: 350px;
+}

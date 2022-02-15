@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @article.title %></title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main class="container mx-auto lg:flex mt-32">
+      <section class="lg:w-8/12 px-5"><%= yield %></section>
+      <aside class="lg:w-4/12 px-5 lg:fixed lg:right-0"><%= render "articles/shared/aside" %></aside>
+    </main>
+    <footer class="mt-32">
+      Ingrédients du bonheur
+    </footer>
+  </body>
+</html>
