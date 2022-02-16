@@ -5,7 +5,7 @@
 <ul class="mt-16">
   <% @articles.each do |article| %>
     <li class="flex justify-between p-4 border-x border-b first:border-t">
-      <%= link_to edit_admin_article_path(article), class: "hover:underline" do %>
+      <%= link_to edit_admin_article_path(article.id), class: "hover:underline" do %>
         <h3 class="text-xl"><%= article.title %></h3>
       <% end %>
 

@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, article] do |form| %>
+<%= form_with model: [:admin, article], url: article.persisted? ? admin_article_path(@article.id) : admin_articles_path do |form| %>
   <div class="flex justify-end">
     <% if article.draft %>
       <%= form.button "Sauvergarder le brouillon", value: "draft", class: "btn-secondary mr-4" %>
