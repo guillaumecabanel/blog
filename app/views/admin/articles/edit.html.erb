@@ -1,1 +1,10 @@
 <%= render "form", article: @article %>
+
+<div class="mx-auto bg-red-50 border-t-4 border-red-300 border-dashed mt-16">
+  <div class="bg-red-100 text-red-700 p-4 text-center font-bold">
+    DANGER ZONE
+  </div>
+  <div class="flex justify-center">
+    <%= button_to 'Supprimer cet article', admin_article_path(@article), method: :delete, class: "my-8 btn-danger" %>
+  </div>
+</div>

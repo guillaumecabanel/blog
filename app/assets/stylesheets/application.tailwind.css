@@ -12,4 +12,9 @@
   @apply rounded shadow cursor-pointer inline-block;
 }
 
+.btn-danger {
+  @apply px-4 py-3 text-center border border-red-800 text-red-800 font-semibold;
+  @apply rounded shadow cursor-pointer inline-block;
+}
+
 @import 'actiontext.css';
