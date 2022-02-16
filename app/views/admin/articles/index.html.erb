@@ -1,5 +1,9 @@
-<div class="flex justify-end">
-  <%= link_to "Nouvel article", new_admin_article_path, class: "btn-primary"%>
+<div class="flex justify-between">
+  <h1 class="text-6xl font-semibold">Les articles</h1>
+  <%= link_to new_admin_article_path, class: "btn-primary self-start" do %>
+    <i class="fa-duotone fa-circle-plus mr-2"></i>
+    <span>Nouvel article</span>
+  <% end %>
 </div>
 
 <ul class="mt-16">
@@ -9,11 +13,20 @@
         <h3 class="text-xl"><%= article.title %></h3>
       <% end %>
 
-      <% if article.draft %>
-        <span class="ml-4 px-2 py-1 bg-gray-200 font-semibold text-sm rounded-lg">Brouillon</span>
-      <% else %>
-        <span class="ml-4 px-2 py-1 bg-green-600 text-white font-semibold text-sm rounded-lg">Publié</span>
-      <% end %>
+      <div class="flex">
+        <% if article.draft %>
+          <span class="px-2 py-1 bg-gray-200 font-semibold text-sm rounded-lg">Brouillon</span>
+          <%= link_to article_path(article), target: "_blank", rel: "noopener noreferrer" do %>
+            <i class="ml-4 fa-duotone fa-eye"></i>
+          <% end %>
+        <% else %>
+          <span class="px-2 py-1 bg-green-600 text-white font-semibold text-sm rounded-lg">Publié</span>
+          <%= link_to article_path(article), target: "_blank", rel: "noopener noreferrer" do %>
+            <i class="ml-4 fa-duotone fa-up-right-from-square"></i>
+          <% end %>
+        <% end %>
+      <div>
+
     <li>
   <% end %>
 </ul>

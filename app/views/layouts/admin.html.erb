@@ -6,15 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
+    <script src="https://kit.fontawesome.com/cfb925a6d8.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <nav class="h-16 flex items-center bg-gray-800 text-white px-8">
+    <nav class="h-16 flex justify-between items-center bg-gray-800 text-white px-8">
       <%= link_to "Admin", admin_path, class: "mr-4" %>
-      <%= link_to "Blog", root_path %>
+      <%= link_to root_path, target: "_blank", rel: "noopener noreferrer", class: "" do %>
+        <span>Blog</span>
+        <i class="ml-2 fa-duotone fa-up-right-from-square"></i>
+      <% end %>
     </nav>
     <main class="container mx-auto my-16 px-5">
       <%= yield %>

@@ -2,7 +2,9 @@
 
 <div class="mx-auto bg-red-50 border-t-4 border-red-300 border-dashed mt-16">
   <div class="bg-red-100 text-red-700 p-4 text-center font-bold">
-    DANGER ZONE
+    <i class="fa-duotone fa-triangle-exclamation"></i>
+    <span class="mx-2">DANGER ZONE</span>
+    <i class="fa-duotone fa-triangle-exclamation"></i>
   </div>
   <div class="flex justify-center">
     <%= button_to 'Supprimer cet article', admin_article_path(@article.id), method: :delete, class: "my-8 btn-danger" %>

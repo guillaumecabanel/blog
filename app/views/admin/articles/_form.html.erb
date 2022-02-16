@@ -1,8 +1,14 @@
 <%= form_with model: [:admin, article], url: article.persisted? ? admin_article_path(@article.id) : admin_articles_path do |form| %>
   <div class="flex justify-end">
     <% if article.draft %>
-      <%= form.button "Sauvergarder le brouillon", value: "draft", class: "btn-secondary mr-4" %>
-      <%= form.button "Publier", value: "publish", class: "btn-primary" %>
+      <%= form.button value: "draft", class: "btn-secondary mr-4" do %>
+        <i class="fa-duotone fa-floppy-disk mr-2"></i>
+        <span>Sauvergarder le brouillon</span>
+      <% end %>
+      <%= form.button "Publier", value: "publish", class: "btn-primary" do %>
+        <i class="fa-duotone fa-paper-plane mr-2"></i>
+        <span>Publier</span>
+      <% end %>
     <% else %>
       <%= form.submit class: "btn-primary" %>
     <% end %>
@@ -17,6 +23,13 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+
+  <% if article.persisted? %>
+    <div class="field">
+      <%= form.label :slug %>
+      <%= form.text_field :slug %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :content %>

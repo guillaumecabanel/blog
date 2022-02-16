@@ -1,3 +1,9 @@
+<% if @article.draft %>
+  <p class="text-blue-600 text-xl font-semibold">Brouillon</p>
+  <p class="text-blue-500">Les visiteurs ne peuvent pas encore voir cette page</p>
+  <div class="mx-auto p-8 border-4 border-blue-300 border-dashed mt-8">
+<% end %>
+
 <p class="font-semibold mb-2 text-slate-700"><%= l(@article.created_at, format: "%d %B %Y", locale: :fr) %></p>
 
 <% if @article.main_picture.representable? %>
@@ -11,3 +17,7 @@
 <article class="font-serif text-2xl text-slate-700 mx-auto">
   <%= @article.content %>
 </article>
+
+<% if @article.draft %>
+  </div>
+<% end %>
