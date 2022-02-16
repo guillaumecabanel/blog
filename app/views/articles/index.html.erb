@@ -4,11 +4,15 @@
 <div class="grid grid-cols-3 gap-4">
   <% @articles.each do |article| %>
     <%= link_to article, class: "mb-8 pb-4 shadow relative" do %>
-      <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+      <% if article.main_picture.representable? %>
+        <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-64 w-full"%>
+      <% else %>
+        <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+      <% end %>
 
-      <h3 class="m-4 text-2xl font-bold font-serif text-indigo-900"><%= article.title %></h3>
+      <h3 class="m-4 text-xl font-bold font-serif text-indigo-900"><%= article.title %></h3>
 
-      <p class="absolute bottom-0 left-0 ml-2 mb-1 text-gray-600">Publié le <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %></p>
+      <p class="absolute bottom-0 left-0 ml-4 mb-1 text-gray-600">Publié le <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %></p>
     <% end %>
   <% end %>
 </div>

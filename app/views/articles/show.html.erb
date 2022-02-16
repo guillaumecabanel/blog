@@ -1,5 +1,11 @@
 <p class="font-semibold mb-2 text-slate-700"><%= l(@article.created_at, format: "%d %B %Y", locale: :fr) %></p>
-<img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+
+<% if @article.main_picture.representable? %>
+  <%= image_tag @article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-64 w-full"%>
+<% else %>
+  <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+<% end %>
+
 <h1 class="text-5xl font-bold font-serif text-indigo-900 my-8"><%= @article.title %></h1>
 
 <article class="font-serif text-2xl text-slate-700 mx-auto">
