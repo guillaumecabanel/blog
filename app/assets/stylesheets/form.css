@@ -38,12 +38,6 @@ input[type="checkbox"] {
   padding: 0 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .field {
-    max-width: 50rem;
-  }
-}
-
 trix-editor {
   min-height: 350px;
 }
