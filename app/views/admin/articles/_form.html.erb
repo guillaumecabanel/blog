@@ -24,16 +24,21 @@
             <span>Publier</span>
           <% end %>
         <% else %>
-          <%= form.submit class: "btn-primary" %>
+          <%= form.button class: "btn-primary" do %>
+            <i class="fa-duotone fa-floppy-disk mr-2"></i>
+            <span>Sauvergarder les changements</span>
+          <% end %>
         <% end %>
       </div>
 
-      <div class="field block">
-        <%= form.label :main_picture %>
-        <%= form.file_field :main_picture %>
-        <% if article.main_picture.representable? %>
-          <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-64 w-full"%>
-        <% end %>
+      <div class="border border-2 border-gray-100 mt-8 py-4">
+        <div class="field block">
+          <%= form.label :main_picture %>
+          <%= form.file_field :main_picture %>
+          <% if article.main_picture.representable? %>
+            <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-64 w-full"%>
+          <% end %>
+        </div>
       </div>
 
       <div class="border border-2 border-gray-100 mt-8 py-4">
