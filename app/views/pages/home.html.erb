@@ -1,0 +1,24 @@
+<header style="background-image: url(<%= image_path("hero.webp") %>)" class="mb-10 bg-center bg-cover">
+  <div class="bg-[#00000066] py-64">
+    <h1 class="font-serif text-6xl text-center font-semibold text-white tracking-wide">
+      Le livre de recettes pour une vie épanouie
+    </h1>
+  </div>
+</header>
+
+<section class="container mx-auto mt-16 px-5">
+  <h2 class="text-2xl md:text-3xl lg:text-4xl lg:leading-tight font-bold text-gray-800 text-center">
+    Blog
+  </h2>
+  <p class="text-lg lg:text-xl font-medium text-gray-600 text-center">Les derniers articles</p>
+
+
+  <div class="lg:px-32 xl:px-64 mt-16">
+    <% @articles.each_with_index do |article, index| %>
+      <%= render article, index: index %>
+    <% end %>
+
+    <%= link_to "Voir tous les articles", articles_path, class: "border-2 border-black py-3 block text-center uppercase tracking-wide hover:bg-black hover:text-white transition duration-300" %>
+  </div>
+  <%= render "shared/subscribe" %>
+</section>

@@ -3,7 +3,7 @@ module Admin
     before_action :set_article, only: %i[ edit update destroy ]
 
     def index
-      @articles = Article.all.order(created_at: :desc)
+      @articles = Article.unscoped.all.order(created_at: :desc)
     end
 
     def new
@@ -13,6 +13,7 @@ module Admin
     def create
       @article = Article.new(article_params)
       @article.draft = params[:button] == "draft"
+      @article.published_at = DateTime.now unless @article.draft
 
       if @article.save
         redirect_to admin_articles_path
@@ -26,6 +27,7 @@ module Admin
 
     def update
       @article.draft = params[:button] == "draft"
+      @article.published_at = DateTime.now unless @article.draft
 
       if @article.update(article_params)
         redirect_to admin_articles_path

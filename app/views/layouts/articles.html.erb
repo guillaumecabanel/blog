@@ -22,13 +22,13 @@
   </head>
 
   <body>
+    <%= render "shared/header" %>
+
     <main class="container mx-auto px-8 lg:px-0">
       <%= yield %>
       <%= render 'shared/subscribe' %>
     </main>
 
-    <footer class="mt-32 flex justify-center py-8">
-      <p class="text-gray-700">Ingrédients du bonheur</p>
-    </footer>
+    <%= render "shared/footer" %>
   </body>
 </html>

@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  default_scope { where(draft: false) }
+
   has_rich_text :content
   has_one_attached :main_picture
 

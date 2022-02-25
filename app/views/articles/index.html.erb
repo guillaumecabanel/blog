@@ -1,24 +1,12 @@
-<header class="py-24 mb-10">
-  <h1 class="text-3xl md:text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-800 text-center mx-auto">
-    Les derniers articles
-  </h1>
-</header>
+<% content_for :meta_title, "Tous les articles" %>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-  <% @articles.each do |article| %>
-    <%= link_to article, class: "mb-8 pb-4 shadow-lg relative rounded-lg overflow-hidden" do %>
-      <% if article.main_picture.representable? %>
-        <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-56 w-full"%>
-      <% end %>
+<h2 class="mt-16 text-2xl md:text-3xl lg:text-4xl lg:leading-tight font-bold text-gray-800 text-center">
+  Blog
+</h2>
+<p class="text-lg lg:text-xl font-medium text-gray-600 text-center">Tous les articles</p>
 
-      <h3 class="m-8 text-xl font-semibold text-gray-800"><%= article.title %></h3>
-      <p class="m-8 mb-16 lg:text-lg text-gray-600"><%= article.abstract %></p>
-
-      <p class="absolute bottom-0 left-0 ml-8 mb-6 text-gray-500 text-sm font-medium">
-        <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %>
-        &nbsp;⦁&nbsp;
-        <%= article.reading_time %> min de lecture
-      </p>
-    <% end %>
+<div class="lg:px-32 xl:px-64 mt-16">
+  <% @articles.each_with_index do |article, index| %>
+    <%= render article, index: index %>
   <% end %>
 </div>

@@ -7,22 +7,23 @@
   <p class="text-blue-500">Les visiteurs ne peuvent pas encore voir cette page</p>
 <% end %>
 
-<%# <% if @article.main_picture.representable? %>
-  <%# <%= image_tag @article.main_picture.representation(resize_to_limit: [1800, 1800]), class: "object-cover h-96 w-full"%>
-<%# <% else %>
-  <%# <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" /> %>
-<%# <% end %>
 <section class="xl:px-32 2xl:px-64">
   <header class="pt-16 mb-10">
     <%= link_to articles_path, class: "" do %>
-      <%= image_tag "you.jpg", class: "w-16 h-16 rounded-full shadow mb-2 mx-auto"%>
+      <%= image_tag "you.webp", class: "w-16 h-16 rounded-full shadow mb-2 mx-auto"%>
       <p class="text-md uppercase tracking-wide text-gray-500 font-semibold text-center">Chloé</p>
     <% end %>
   </header>
 
-  <p class="font-medium my-2 text-slate-600 text-center"><%= l(@article.created_at, format: "%d %B %Y", locale: :fr) %></p>
+  <% if @article.published_at %>
+    <p class="font-medium my-2 text-slate-600 text-center"><%= l(@article.published_at, format: "%d %B %Y", locale: :fr) %></p>
+  <% end %>
 
-  <h2 class="text-3xl md:text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-800 mb-12 text-center mx-auto"><%= @article.title %></h2>
+  <h2 class="text-3xl md:text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-800 mb-12 text-center mx-auto font-serif"><%= @article.title %></h2>
+
+  <% if @article.main_picture.representable? %>
+    <%= image_tag @article.main_picture.variant(@transform_options), alt: "Image principale", class: "object-cover h-96 w-full mb-10"%>
+  <% end %>
 
   <article class="prose md:prose-lg lg:prose-xl mx-auto">
     <%= @article.content %>
