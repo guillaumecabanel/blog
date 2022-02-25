@@ -5,7 +5,7 @@
 </h2>
 <p class="text-lg lg:text-xl font-medium text-gray-600 text-center">Tous les articles</p>
 
-<div class="lg:px-32 xl:px-64 mt-16">
+<div class="xl:px-32 mt-16">
   <% @articles.each_with_index do |article, index| %>
     <%= render article, index: index %>
   <% end %>

@@ -1,20 +1,20 @@
-<div class="flex justify-between even:flex-row-reverse mb-16">
-  <div class="w-5/12 relative <%= index.even? ? 'mr-8' : 'ml-8' %>">
+<div class="md:flex justify-between odd:flex-row-reverse mb-16">
+  <% if article.main_picture.representable? %>
+    <%= link_to article_path(article), class: "md:w-7/12 hover:bg-[#FFFFFF33] transition duration-300" do %>
+      <%= image_tag article.main_picture.variant(@transform_options), class: "object-center object-cover h-96 w-full"%>
+    <% end %>
+  <% end %>
+
+  <div class="mt-4 md:mt-0 md:w-5/12 relative <%= index.even? ? 'md:mr-8' : 'md:ml-8' %>">
     <h3 class="mb-4 font-serif text-3xl font-semibold text-gray-900"><%= article.title %></h3>
-    <p class="mb-8 text-gray-500 text-sm font-medium">
+    <p class="mb-4 md:mb-8 text-gray-500 text-sm font-medium">
       <%= l(article.published_at, format: "%d %B %Y", locale: :fr) %>
       &nbsp;⦁&nbsp;
       <%= article.reading_time %> min de lecture
     </p>
 
-    <p class="mb-10 lg:text-lg text-gray-600"><%= article.abstract %></p>
+    <p class="mb-4 md:mb-10 lg:text-lg text-gray-600"><%= article.abstract %></p>
 
     <%= link_to "Lire", article_path(article), class: "border-2 border-black py-3 w-48 block text-center uppercase tracking-wide hover:bg-black hover:text-white transition duration-300" %>
   </div>
-
-  <% if article.main_picture.representable? %>
-    <%= link_to article_path(article), class: "w-7/12 hover:" do %>
-      <%= image_tag article.main_picture.variant(@transform_options), class: "object-center object-cover h-96 w-full"%>
-    <% end %>
-  <% end %>
 </div>

@@ -1,6 +1,6 @@
 <header style="background-image: url(<%= image_path("hero.webp") %>)" class="mb-10 bg-center bg-cover">
   <div class="bg-[#00000066] py-64">
-    <h1 class="font-serif text-6xl text-center font-semibold text-white tracking-wide">
+    <h1 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-center font-semibold text-white tracking-wide">
       Le livre de recettes pour une vie épanouie
     </h1>
   </div>
@@ -13,7 +13,7 @@
   <p class="text-lg lg:text-xl font-medium text-gray-600 text-center">Les derniers articles</p>
 
 
-  <div class="lg:px-32 xl:px-64 mt-16">
+  <div class="xl:px-32 mt-16">
     <% @articles.each_with_index do |article, index| %>
       <%= render article, index: index %>
     <% end %>
