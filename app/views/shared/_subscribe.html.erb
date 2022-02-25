@@ -1,0 +1,14 @@
+<section class="bg-indigo-700 px-10 py-10 lg:py-16 rounded-lg my-16 lg:flex justify-between">
+  <div class="mb-8 lg:mb-0 xl:w-1/2">
+    <h2 class="text-white text-xl md:text-3xl font-bold">Voulez-vous recevoir les prochains articles de Chloé ?</h2>
+    <p class="text-gray-200 text-lg">Inscrivez-vous à la newsletter.</p>
+  </div>
+  <div>
+    <%= form_with url: "/subscribe", method: :get do |form| %>
+      <div class="sm:flex justify-between">
+        <%= form.text_field :email, placeholder: "alice@exemple.com", class:"mb-4 sm:mb-0 sm:mr-4" %>
+        <%= form.submit "Prévenez-moi", class: "w-full sm:w-auto h-12 px-3 bg-indigo-500 text-white font-semibold text-lg rounded" %>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -7,4 +7,12 @@ class Article < ApplicationRecord
 
   validates :slug, uniqueness: true
 
+  def abstract
+    content.to_plain_text.truncate(180, separator: ' ')
+  end
+
+  def reading_time
+    time = content.to_plain_text.split.count / 200
+    time <= 1 ? 1 : time
+  end
 end

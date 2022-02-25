@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        serif: ['Merriweather', ...defaultTheme.fontFamily.serif],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
@@ -16,6 +17,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography')
   ]
 }

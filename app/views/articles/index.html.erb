@@ -1,18 +1,24 @@
-<h1 class="mb-16 text-4xl font-bold font-serif text-indigo-900">
-  Les ingrédients du bonheur
-</h1>
-<div class="grid grid-cols-3 gap-4">
+<header class="py-24 mb-10">
+  <h1 class="text-3xl md:text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-800 text-center mx-auto">
+    Les derniers articles
+  </h1>
+</header>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
   <% @articles.each do |article| %>
-    <%= link_to article, class: "mb-8 pb-4 shadow relative" do %>
+    <%= link_to article, class: "mb-8 pb-4 shadow-lg relative rounded-lg overflow-hidden" do %>
       <% if article.main_picture.representable? %>
-        <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-64 w-full"%>
-      <% else %>
-        <img src="https://place-hold.it/1200x800" class="object-none h-64 w-full" />
+        <%= image_tag article.main_picture.representation(resize_to_limit: [500, 500]), class: "object-cover h-56 w-full"%>
       <% end %>
 
-      <h3 class="m-4 text-xl font-medium font-serif text-indigo-900"><%= article.title %></h3>
+      <h3 class="m-8 text-xl font-semibold text-gray-800"><%= article.title %></h3>
+      <p class="m-8 mb-16 lg:text-lg text-gray-600"><%= article.abstract %></p>
 
-      <p class="absolute bottom-0 left-0 ml-4 mb-1 text-gray-600">Publié le <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %></p>
+      <p class="absolute bottom-0 left-0 ml-8 mb-6 text-gray-500 text-sm font-medium">
+        <%= l(article.created_at, format: "%d %B %Y", locale: :fr) %>
+        &nbsp;⦁&nbsp;
+        <%= article.reading_time %> min de lecture
+      </p>
     <% end %>
   <% end %>
 </div>
