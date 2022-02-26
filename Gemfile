@@ -17,6 +17,7 @@ gem "bootsnap", require: false
 gem "tailwindcss-rails"
 gem "rails-i18n", "~> 7.0.0"
 gem "friendly_id", "~> 5.4.0"
+gem "active_analytics"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"

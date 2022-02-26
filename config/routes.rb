@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get :admin, to: "admin/articles#index"
 
   namespace :admin do
+    mount ActiveAnalytics::Engine, at: "analytics"
     resources :articles
   end
 end

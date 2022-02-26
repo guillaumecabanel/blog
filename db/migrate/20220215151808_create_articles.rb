@@ -10,5 +10,7 @@ class CreateArticles < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :articles, :slug
   end
 end
