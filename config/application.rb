@@ -14,6 +14,7 @@ module Blog
     config.i18n.default_locale = :fr
 
     # Configuration for the application, engines, and railties goes here.
+    config.middleware.use Rack::CrawlerDetect
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

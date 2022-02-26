@@ -86,6 +86,8 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    crawler_detect (1.2.0)
+      qonfig (~> 0.24)
     digest (3.1.0)
     erubi (1.10.0)
     ffi (1.15.5)
@@ -139,6 +141,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.6.2)
       nio4r (~> 2.0)
+    qonfig (0.27.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -225,6 +228,7 @@ DEPENDENCIES
   active_analytics
   bootsnap
   capybara
+  crawler_detect
   friendly_id (~> 5.4.0)
   image_processing (~> 1.2)
   importmap-rails
