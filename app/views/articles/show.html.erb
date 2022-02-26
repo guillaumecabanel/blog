@@ -25,7 +25,9 @@
     <%= image_tag @article.main_picture.variant(@transform_options), alt: "Image principale", class: "object-cover h-96 w-full mb-10"%>
   <% end %>
 
-  <article class="prose md:prose-lg lg:prose-xl mx-auto">
+  <section>
+    <article class="prose md:prose-lg lg:prose-xl mx-auto">
     <%= @article.content %>
   </article>
+  </section>
 <section>

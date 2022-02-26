@@ -16,12 +16,12 @@
       <div class="flex">
         <% if article.draft %>
           <span class="px-2 py-1 bg-gray-200 font-semibold text-sm rounded-lg">Brouillon</span>
-          <%= link_to article_path(article), target: "_blank", rel: "noopener noreferrer" do %>
+          <%= link_to admin_article_path(article.id), target: "_blank", rel: "noopener noreferrer" do %>
             <i class="ml-4 fa-duotone fa-eye"></i>
           <% end %>
         <% else %>
           <span class="px-2 py-1 bg-green-600 text-white font-semibold text-sm rounded-lg">Publié</span>
-          <%= link_to article_path(article), target: "_blank", rel: "noopener noreferrer" do %>
+          <%= link_to admin_article_path(article.id), target: "_blank", rel: "noopener noreferrer" do %>
             <i class="ml-4 fa-duotone fa-up-right-from-square"></i>
           <% end %>
         <% end %>

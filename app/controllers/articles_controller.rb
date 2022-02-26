@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.unscoped.friendly.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @transform_options = {
       resize_to_limit: [1024, 384],
       format: :webp,

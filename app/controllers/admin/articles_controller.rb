@@ -6,6 +6,17 @@ module Admin
       @articles = Article.unscoped.all.order(created_at: :desc)
     end
 
+    def show
+      @article = Article.unscoped.find(params[:id])
+      @transform_options = {
+        resize_to_limit: [1024, 384],
+        format: :webp,
+        saver: { subsample_mode: "on", strip: true, interlace: true, quality: 80 }
+      }
+
+      render "articles/show"
+    end
+
     def new
       @article = Article.new
     end
